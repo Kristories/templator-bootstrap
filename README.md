@@ -1,6 +1,16 @@
 # templator-bootstrap
 
+[Templator](https://github.com/Kristories/Templator) templates for [Twitter Bootstrap](http://getbootstrap.com)
+
+## Preview
+
+![preview](preview.png)
+
+## Positions
+
 ![positions](positions.png)
+
+## Code
 
 ```php
 $templator->blocks(array(
