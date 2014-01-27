@@ -1,0 +1,183 @@
+{% set block_header         = block('header') %}
+{% set block_top            = block('top') %}
+{% set block_inner_top      = block('inner_top') %}
+{% set block_left           = block('left') %}
+{% set block_content        = block('content') %}
+{% set block_right          = block('right') %}
+{% set block_inner_bottom   = block('inner_bottom') %}
+{% set block_bottom         = block('bottom') %}
+{% set block_footer         = block('footer') %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>{{ title }}</title>
+
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    {% if block_header is not empty %}
+    <div id="area-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                	{{ block_header|raw }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div id="area-body">
+
+        {% if block_top is not empty %}
+        <div id="area-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ block_top|raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="container">
+            <div class="row">
+
+                {% if block_left is not empty and block_right is not empty %}
+                <div class="col-md-4">
+                    <div id="left">
+                        {{ block_left|raw }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    {% if block_inner_top is not empty %}
+                    <div id="inner_top">
+                        {{ block_inner_top|raw }}
+                    </div>
+                    {% endif %}
+
+                    <div id="content">
+                        {{ block_content|raw }}
+                    </div>
+
+                    {% if block_inner_bottom is not empty %}
+                    <div id="inner_bottom">
+                        {{ block_inner_bottom|raw }}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    <div id="right">
+                        {{ block_right|raw }}
+                    </div>
+                </div>
+
+                {% elseif block_left is not empty %}
+                <div class="col-md-4">
+                    <div id="left">
+                        {{ block_left|raw }}
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    {% if block_inner_top is not empty %}
+                    <div id="inner_top">
+                        {{ block_inner_top|raw }}
+                    </div>
+                    {% endif %}
+
+                    <div id="content">
+                        {{ block_content|raw }}
+                    </div>
+
+                    {% if block_inner_bottom is not empty %}
+                    <div id="inner_bottom">
+                        {{ block_inner_bottom|raw }}
+                    </div>
+                    {% endif %}
+                </div>
+
+                {% elseif block_right is not empty %}
+                <div class="col-md-8">
+                    {% if block_inner_top is not empty %}
+                    <div id="inner_top">
+                        {{ block_inner_top|raw }}
+                    </div>
+                    {% endif %}
+
+                    <div id="content">
+                        {{ block_content|raw }}
+                    </div>
+
+                    {% if block_inner_bottom is not empty %}
+                    <div id="inner_bottom">
+                        {{ block_inner_bottom|raw }}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    <div id="right">
+                        {{ block_right|raw }}
+                    </div>
+                </div>
+
+                {% else %}
+                <div class="col-md-12">
+                    {% if block_inner_top is not empty %}
+                    <div id="inner_top">
+                        {{ block_inner_top|raw }}
+                    </div>
+                    {% endif %}
+
+                    <div id="content">
+                        {{ block_content|raw }}
+                    </div>
+
+                    {% if block_inner_bottom is not empty %}
+                    <div id="inner_bottom">
+                        {{ block_inner_bottom|raw }}
+                    </div>
+                    {% endif %}
+                </div>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% if block_bottom is not empty %}
+    <div id="area-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {{ block_bottom|raw }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if block_footer is not empty %}
+    <div id="area-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {{ block_footer|raw }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+</body>
+</html>
