@@ -6,11 +6,18 @@
 
 ![preview](preview.png)
 
+
 ## Positions
 
 ![positions](positions.png)
 
-## Code
+
+## Installation
+
+- Install [Templator](https://github.com/Kristories/Templator)
+- Copy `assets` and `templates` folders into your project
+
+## Blocks
 
 ```php
 $templator->blocks(array(
